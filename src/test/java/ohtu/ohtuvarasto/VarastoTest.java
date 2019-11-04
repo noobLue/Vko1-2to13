@@ -13,11 +13,14 @@ import static org.junit.Assert.*;
 public class VarastoTest {
 
     Varasto varasto;
+    Varasto toinenVarasto;
     double vertailuTarkkuus = 0.0001;
 
     @Before
     public void setUp() {
         varasto = new Varasto(10);
+
+        toinenVarasto = new Varasto(10, 5);
     }
 
     @Test
@@ -65,4 +68,66 @@ public class VarastoTest {
         assertEquals(4, varasto.paljonkoMahtuu(), vertailuTarkkuus);
     }
 
+    @Test
+    public void lisaaminenEiTaytaYli(){
+        toinenVarasto.lisaaVarastoon(11);
+
+        assertEquals(0, toinenVarasto.paljonkoMahtuu(), vertailuTarkkuus);
+    }
+
+    @Test
+    public void ottaminenEiVoiOttaaLiikaa(){
+        toinenVarasto.otaVarastosta(10);
+
+        assertEquals(0, toinenVarasto.getSaldo(), vertailuTarkkuus);
+    }
+
+    @Test
+    public void eiOleMahdottomiaVarastoja(){
+        Varasto v = new Varasto(-1);
+
+        assertEquals(0, v.getTilavuus(), vertailuTarkkuus);
+    }
+
+    @Test
+    public void eiOleMahdottomiaVarastoja2(){
+        Varasto v = new Varasto(-1, 1);
+
+        assertEquals(0, v.getTilavuus(), vertailuTarkkuus);
+    }
+
+    @Test
+    public void eiOleNegatiivistaAlkuSaldoa(){
+        Varasto v = new Varasto(1, -1);
+
+        assertEquals(0, v.getSaldo(), vertailuTarkkuus);
+    }
+
+
+    @Test
+    public void eiVoiOttaaNegatiivisaMaaria(){
+        varasto.lisaaVarastoon(5);
+
+        varasto.otaVarastosta(-1);
+
+        assertEquals(5, varasto.getSaldo(), vertailuTarkkuus);
+    }
+
+    @Test
+    public void eiVoiLisataNegatiivisaMaaria(){
+        varasto.lisaaVarastoon(-1);
+
+        assertEquals(0, varasto.getSaldo(), vertailuTarkkuus);
+    }
+
+    @Test
+    public void merkkiesitysSisaltaaSaldon(){
+
+        assertTrue(varasto.toString().contains("saldo = " + varasto.getSaldo() + ","));
+    }
+
+    @Test
+    public void merkkiesitysKertooPaljonMahtuu(){
+        assertTrue(varasto.toString().endsWith("tilaa " + varasto.paljonkoMahtuu()));
+    }
 }
