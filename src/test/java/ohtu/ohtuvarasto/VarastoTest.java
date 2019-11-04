@@ -130,4 +130,9 @@ public class VarastoTest {
     public void merkkiesitysKertooPaljonMahtuu(){
         assertTrue(varasto.toString().endsWith("tilaa " + varasto.paljonkoMahtuu()));
     }
+
+    @Test
+    public void circlejiFail(){
+        assertTrue(false);
+    }
 }
