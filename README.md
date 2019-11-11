@@ -12,3 +12,6 @@ https://github.com/noobLue/Ohjelmistotuotanto/tree/master/viikko2/tehtavat9-12/V
 
 ## CodeCov Badge
 [![codecov](https://codecov.io/gh/noobLue/ohtu-2019-viikko1/branch/master/graph/badge.svg)](https://codecov.io/gh/noobLue/ohtu-2019-viikko1)
+
+## CodeClimate Badge
+[![Maintainability](https://api.codeclimate.com/v1/badges/4b35965aeb2b8e99a518/maintainability)](https://codeclimate.com/github/noobLue/ohtu-2019-viikko1/maintainability)
