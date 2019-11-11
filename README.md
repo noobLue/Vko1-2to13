@@ -1,6 +1,10 @@
 # ohtu-2019-viikko1
 
-https://github.com/noobLue/Ohjelmistotuotanto
+## Viikko1 tehtavat 14-16
+https://github.com/noobLue/Ohjelmistotuotanto/tree/master/viikko1/tehtavat14-16
+
+## Viikko2 tehtavat 9-12
+https://github.com/noobLue/Ohjelmistotuotanto/tree/master/viikko2/tehtavat9-12/Verkkokauppa
 
 
 ## CircleCI Badge
